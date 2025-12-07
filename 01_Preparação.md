@@ -12,7 +12,7 @@ adaptado para rodar em servidores na nuvem ou máquinas virtuais.
 
 Você precisará, no mínimo, de:
 
-- Processador Intel/AMD (geração ≥ 2010).
+- Processador Intel/AMD (geração ≥ 2015).
 - 4 GB de RAM para apenas Bitcoin, ou 8 GB de RAM (ou mais) se for
   utilizar também LND e aplicações adicionais.
 - Armazenamento interno: SSD de 2 TB (ou superior).
@@ -36,7 +36,9 @@ Recomendações:
 - Cada palavra‑passe deve ser única.
 - Use pelo menos 12 caracteres.
 - Misture letras maiúsculas, minúsculas, números e símbolos (como espaços,
-  aspas simples ' ou aspas duplas ").
+  aspas simples ' ou aspas duplas ")
+
+  *Cuidado!* Senha muito aleatórias se não bem administradas podem causar perda de acesso ao seu servidor. Tenha cuidado e armazene suas senhas de forma segura e offline/criptografada com senha.
 
 Sugestão de organização (anote em papel e guarde em local seguro):
 
@@ -205,60 +207,30 @@ Utilizaremos o usuário principal admin em vez de temp para tornar este guia mai
   tempos em tempos, será solicitado que você digite sua password **[A]** de administrador para aumentar a segurança
 - Atualizar o sistema operativo e todos os pacotes de software instalados
 
-```bash sudo adduser --gecos "" admin
-
+```bash 
+sudo adduser --gecos "" admin
 ```
 
-````bash sudo usermod -a -G sudo,adm,cdrom,dip,plugdev,lxd admin
-``` logout
-```bash sudo userdel -rf temp
-``` > userdel: temp mail spool (/var/mail/temp) not found
+````bash 
+sudo usermod -a -G sudo,adm,cdrom,dip,plugdev,lxd admin
+````
+logout
+```bash 
+sudo userdel -rf temp
+````
+userdel: temp mail spool (/var/mail/temp) not found
 ```bash sudo apt update && sudo apt full-upgrade
 ````
 
-- Para podermos utilizar o nome de anfitrião minibolt em vez do
-  endereço IP, temos de instalar este pacote de software necessário
-  Uma unidade de armazenamento de alto desempenho é essencial para o seu Node.
-  Vamos verificar se o seu drive está funcionando na velocidade adequada
-  Seu disco deve ser dectado como /dev/sda. Verifique se este é o caso listando os nomes dos dispositivos com o comando abaixo:
-  Meça a velocidade do seu drive
-
-```bash sudo apt install avahi-daemon
-
-```
-
-# Verifique
-
-o desempenho do drive
-
-# Unidade
-
-de armazenamento de alto desempenho é essencial para o seu node.
-
-# Vamos
-
-verificar se o seu drive está funcionando bem como está.
-
-# Seu
-
-disco deve ser detectado como /dev/sda. Verifique se este é
-o caso listando os nomes dos dispositivos de bloco conectados lsblk -pli
-
-````bash sudo hdparm -t --direct /dev/sda
-``` Timing O_DIRECT disk reads: 932 MB in 3.00 seconds = 310.23 MB/sec
-Vamos armazenar todos os dados da aplicação no diretório dedicado /
-data . Isto permite uma maior segurança porque não se encontra no diretório
-pessoal de nenhum utilizador. Além disso, é mais fácil mover esse diretório
-para outro local, por exemplo, para uma unidade separada, uma vez que pode simplesmente montar qualquer opção de armazenamento em /data
-- Criar a pasta de dados Atribuição ao usuário admin como proprietário da pasta /data
-Vamos assegurar que o seu MiniBolt esteja protegido contra o acesso remoto não autorizado.
-```bash sudo hdparm -t --direct /dev/sdb
-``` Timing O_DIRECT disk reads: 932 MB in 3.00 seconds = 310.23 MB/sec
-```bash sudo mkdir /data
+```bash 
+sudo mkdir /data
 ````
 
-````bash sudo chown admin:admin /data
-``` O BRLNBolt tem de ser protegido contra ataques em linha utilizando vários métodos.
+````bash 
+sudo chown admin:admin /data
+````
+
+O BRLNBolt tem de ser protegido contra ataques em linha utilizando vários métodos.
 Uma firewall controla o tipo de tráfego externo que a sua máquina aceita e
 quais as aplicações que podem enviar dados. Por defeito, muitas portas de
 rede estão abertas e à espera de ligações de entrada. Fechar portas desnecessárias pode reduzir muitas vulnerabilidades potenciais do sistema.
