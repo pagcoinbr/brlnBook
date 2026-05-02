@@ -140,52 +140,13 @@ Depois disso, você já poderá desconectar o monitor e o teclado do MiniBolt e
 passar a trabalhar apenas por acesso remoto (SSH) a partir do seu
 computador principal.
 
-## DHCP
+## configuração do sistema
 
-Agora é hora de se conectar ao BRLNBolt via Secure Shell SSH) e começar
-a trabalhar em outra maquina da mesma rede. Para isso, precisamos de um cliente SSH.
-Instale e inicie o cliente SSH para o seu sistema operativo:
-, 2 opções:
-◦Transfira a versão 64-bit x ou 32-bit x , dependendo da arquitetura do seu SO. Fonte
-▪Inicie o Putty, na árvore da esquerda, selecione "session", na caixa "Hostname (or IP address)", escreva temp@192.168.x.xx , porta 22 na caixa da esquerda.
-▪Premir o botão "OPEN", quando aparecer a mensagem "Alerta de
-segurança PuTTy", prima a tecla "Accept", e, finalmente, digite a sua password **[A]** .
+Devemos utilizar o comando sudo ("superuserdo") como prefixo. Ao invés de editar um arquivo de sistema com nano /etc/fstab, nós usamos sudo nano /etc/fstab.
 
-- Descarregar a versão Portable Edition ou Installer Edition, consoante pretenda instalá-la permanentemente ou não.
-  ◦Iniciar o MobaXterm, 2 opções:
-  ▪Se quiser guardar a sessão para mais tarde: no menu superior, clique em "Sessão"  "Nova sessão"  Selecione "SSH".
-- Introduza o endereço IP do MiniBolt 192.168.x.xx), selecione "specify username" e introduza à direita "temp", mantenha a porta "22" selecionada à direita.
-- Premir o botão OK, quando aparecer a mensagem "Connexion
-  to...", premir o botão "Accept" e, por fim, digitar a sua "password A`.
-- Caso contrário, selecione no painel de controlo o botão "Iniciar terminal local" e escreva diretamente no terminal ssh temp@192.168.x.xxx .
-  ◦No terminal nativo, digite: ssh temp@192.168.x.xxx
-  ◦Use o Putty, simplesmente no terminal nativo digite sudo apt
-  install putty e inicie-o digitando putty , siga as mesmas instruções do Putty para Windows.
-  Nota, pormenores de ligação:
-  Vamos trabalhar com a linha de comandos do PC, que pode ser uma
-  novidade para si. Encontre algumas informações básicas abaixo. Elas ajudá-lo-ão a navegar e a interagir com o seu PC.
-  O utilizador introduz comandos e o PC responde imprimindo os resultados
-  por baixo do seu comando. A resposta do sistema é assinalada com o carácter > .
-  Os comentários adicionais começam por # e não fornecem qualquer ação, apenas servem para se orientar.
-  No exemplo a seguir, basta digitar ls -la e pressionar a tecla enter/return:
-  > hostname: o seu endereço IP Ubuntu (MiniBolt) como:
-  > 192.168.x.xxx > port:
-  > username: temp > password: password **[A]** ls -la > exemplo de resposta do sistema
+Por razões de segurança, os utilizadores de serviços como "bitcoin" não podem utilizar o comando sudo.
 
-# Isto
-
-é um comentário
-: pode utilizar a tecla Tab para auto-completar quando introduz comandos, isto é, para comandos, diretórios ou nomes de ficheiros.
-: premindo (seta para cima) e (seta para baixo) no seu teclado, pode chamar os comandos introduzidos anteriormente.
-: nosso usuário comum não tem
-privilégios diretos de administrador. Se um comando precisa editar a
-
-## configuração do sistema, devemos utilizar o comando sudo ("superuser
-
-do") como prefixo. Ao invés de editar um arquivo de sistema com nano /etc/fstab , nós usamos sudo nano /etc/fstab .
-Por razões de segurança, os utilizadores de serviços como "bitcoin" não podem utilizar o comando sudo .
-: utilizamos o editor Nano para criar novos
-ficheiros de texto ou editar os existentes. Não é complicado, mas guardar e sair não é intuitivo.
+Utilizamos o editor Nano para criar novos diretórios de texto ou editar os existentes. Não é complicado, mas guardar e sair não é intuitivo.
 ◦Guardar: premir Ctrl-O (para Saída), confirmar o nome do ficheiro e premir a tecla Enter .
 ◦Sair: premir Ctrl-X
 : se estiver a utilizar o Windows e o cliente SSH PuTTY,
